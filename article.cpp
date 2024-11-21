@@ -1,3 +1,6 @@
+#ifndef UNTITLED1_ARTICLE_H
+#define UNTITLED1_ARTICLE_H
+
 #include<iostream>
 #include<string>
 #include "author.cpp"
@@ -37,5 +40,5 @@ public:
     void displayInfo(){
     std::cout<<"skibidimostek";
     };
-
 };
+#endif
