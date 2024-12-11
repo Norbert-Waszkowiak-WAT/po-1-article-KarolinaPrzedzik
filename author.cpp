@@ -13,13 +13,13 @@ public:
     Author(std::string name, std::string surname)
     : name(name), surname(surname) {};
 
-    std::string getSurname(){
+    const std::string getSurname() const{
         return surname;
     }
-    std::string getName(){
+    const std::string getName() const{
         return name;
     }
-    std::string toString(){
+    const std::string toString() const{
         return name + " " + surname;
     }
     void print(){

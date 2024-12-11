@@ -6,7 +6,8 @@
 #include "author.cpp"
 #include "article.cpp"
 #include "chapter.cpp"
-class{
+using namespace std;
+class Book{
     private:
     std::string title;
     Author author;
@@ -14,33 +15,36 @@ class{
     std::vector <Chapter> chapters;
     public:
     Book()
-    :title(""), author(Author()), publicationYear(2023), chapters(){};
+    : title(""), author(Author()), publicationYear(0) {};
+    Book(const string &bookTitle, const Author &bookAuthor, int year, const vector<Chapter>& bookChapters)
+    : title(bookTitle), author(bookAuthor), publicationYear(year), chapters(bookChapters) {};
 
-    Book(std::string bookTitle, Author bookAuthor, int year, const std::vector<Chapter> &bookChapters)
-    :title(bookTitle), author(bookAuthor), publicationYear(year), chapters(bookChapters){};
-
-    void addChapter(Chapter &chapter){
+    void addChapter(const Chapter &chapter){
         chapters.push_back(chapter);
     }
 
-    std::string getTitle(){
+    void displayInfo() const{
+    std::cout << "Book: " << title << " by " << author.toString() << " (" << publicationYear << ")" << endl;
+        for (const Chapter &chapter: chapters) {
+            chapter.displayInfo();
+        }
+    }
+
+    const string &getTitle() const{
         return title;
     }
 
-    Author getAuthor(){
+    const Author &getAuthor() const{
         return author;
     }
 
-    int getPublicationYear(){
+    int getPublicationYear() const{
         return publicationYear;
     }
 
-    std::vector<Chapter> getChapters(){
+    const vector<Chapter> &getChapters() const{
         return chapters;
     }
 
-    void displayInfo(){
-        std::cout<<"skibidi";
-    }
 };
 #endif
